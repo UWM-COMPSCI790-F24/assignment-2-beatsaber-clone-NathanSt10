@@ -1,5 +1,5 @@
-# Godot files
+# Godot 4+ specific ignores
 .godot/
-
-# Android
-android/
+/android/
+/addons/
+/Build/
