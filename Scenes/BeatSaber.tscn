@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://bb3jb2glk3a45" path="res://Materials/Platform.tres" id="2_pkp7m"]
 [ext_resource type="PackedScene" uid="uid://dsw2o42b78ox0" path="res://SceneInstance/XR_Pointing_Rig.tscn" id="2_uugsb"]
-[ext_resource type="Script" path="res://Scenes/CubeMove.gd" id="3_cl4wj"]
+[ext_resource type="Script" path="res://Scripts/CubeMove.gd" id="3_xr4p8"]
 
 [sub_resource type="Environment" id="Environment_fdy3d"]
 
@@ -24,7 +24,7 @@ material = ExtResource("2_pkp7m")
 [node name="RhythmCube" type="CSGBox3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.25)
 size = Vector3(0.25, 0.25, 0.25)
-script = ExtResource("3_cl4wj")
+script = ExtResource("3_xr4p8")
 
 [node name="RCArea" type="Area3D" parent="WorldEnvironment/RhythmCube"]
 

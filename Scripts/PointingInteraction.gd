@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	
 	var start = global_position + (-global_basis.z * 0.1)
 	var end = (-global_basis.z * 1) + start
