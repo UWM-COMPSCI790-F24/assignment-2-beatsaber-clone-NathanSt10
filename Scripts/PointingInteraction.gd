@@ -1,6 +1,7 @@
 extends XRController3D
 
 var isExtended = true
+var active_collider = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,15 +17,17 @@ func _physics_process(delta: float) -> void:
 	$"LineRenderer".points[0] = start
 	$"LineRenderer".points[1] =  end
 	
-	$"RayCast3D".target_position = end
+	$"RayCast3D".target_position = $"RayCast3d".to_local(end)
 	
 	if $"RayCast3D".is_colliding():
-		var collider = $"RayCast3D".get_collider()
-		if collider!= null:
-			print("Collision detected: ", collider.name)
-			if collider.name == "RCArea":
-				print("Destroying Box: ", collider.name)
-				destroy_cube(collider.get_parent())
+		var cur_collider = $"RayCast3D".get_collider()
+		if active_collider == null or active_collider != cur_collider:
+			active_collider = cur_collider
+			#if cur_collider.name == "RCArea":
+			destroy_cube(active_collider.get_parent())
+			$"Beeper".play()
+	elif active_collider != null:
+		active_collider == null
 
 
 func _on_button_pressed(name: String) -> void:

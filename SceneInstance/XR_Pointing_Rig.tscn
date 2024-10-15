@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsw2o42b78ox0"]
+[gd_scene load_steps=11 format=3 uid="uid://dsw2o42b78ox0"]
 
 [ext_resource type="Script" path="res://Scripts/XRSetup.gd" id="1_wx6m3"]
 [ext_resource type="Material" uid="uid://dj4dslq6kfb6y" path="res://Materials/blue_laser.tres" id="3_1t7tg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://dduntg56wpbvx" path="res://Materials/red_laser.tres" id="5_haeta"]
 [ext_resource type="PackedScene" uid="uid://bc8lh0rihgxvi" path="res://Models/Quest2Controllers/OculusQuest2TouchController_Right.gltf" id="6_5tuur"]
 [ext_resource type="Script" path="res://Scripts/LineRenderer.gd" id="6_tah0e"]
+[ext_resource type="AudioStream" uid="uid://bcvdncwgeebfe" path="res://Audio/short-beep_C_major.wav" id="6_u3ewu"]
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_j1yak"]
 
@@ -35,6 +36,9 @@ collide_with_bodies = false
 [node name="OculusQuest2TouchController_Left" parent="LeftController" instance=ExtResource("4_ovu2p")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
+[node name="Beeper" type="AudioStreamPlayer" parent="LeftController"]
+stream = ExtResource("6_u3ewu")
+
 [node name="RightController" type="XRController3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"right_hand"
@@ -51,6 +55,9 @@ collide_with_bodies = false
 
 [node name="OculusQuest2TouchController_Right" parent="RightController" instance=ExtResource("6_5tuur")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Beeper" type="AudioStreamPlayer" parent="RightController"]
+stream = ExtResource("6_u3ewu")
 
 [connection signal="button_pressed" from="LeftController" to="LeftController" method="_on_button_pressed"]
 [connection signal="button_pressed" from="RightController" to="RightController" method="_on_button_pressed"]
