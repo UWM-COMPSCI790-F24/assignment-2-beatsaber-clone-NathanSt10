@@ -9,7 +9,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	
 	var start = global_position + (-global_basis.z * 0.1)
 	var end = (-global_basis.z * 1) + start
@@ -17,15 +17,15 @@ func _physics_process(delta: float) -> void:
 	$"LineRenderer".points[0] = start
 	$"LineRenderer".points[1] =  end
 	
-	$"RayCast3D".target_position = $"RayCast3d".to_local(end)
+	$"RayCast3D".target_position = $"RayCast3D".to_local(end)
 	
 	if $"RayCast3D".is_colliding():
 		var cur_collider = $"RayCast3D".get_collider()
 		if active_collider == null or active_collider != cur_collider:
 			active_collider = cur_collider
-			#if cur_collider.name == "RCArea":
-			destroy_cube(active_collider.get_parent())
-			$"Beeper".play()
+			if cur_collider.name == "RCArea":
+				destroy_cube(active_collider.get_parent())
+				$"Beeper".play()
 	elif active_collider != null:
 		active_collider == null
 

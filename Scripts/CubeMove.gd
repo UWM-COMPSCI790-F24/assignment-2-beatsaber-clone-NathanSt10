@@ -1,9 +1,10 @@
 extends CSGBox3D
 
 # Used to initialize start position
-var start_x = 0
-var start_y = 1
-var start_z = -0.55
+var rng = RandomNumberGenerator.new()
+var start_x = rng.randf_range(-1.5, 1.5)
+var start_y = rng.randf_range(0.5, 1.5)
+var start_z = -15
 
 var start_position = Vector3(start_x, start_y, start_z) 
 var move_direction = Vector3(0, 0, 1)  # Move along the Z-axis
@@ -16,7 +17,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
-	#position += move_direction * move_speed * delta
-	pass
+func _process(delta: float) -> void:
+	position += move_direction * move_speed * delta
 	
+	if position.z > 5:
+		queue_free()
