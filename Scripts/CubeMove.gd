@@ -8,7 +8,7 @@ var start_z = -15
 
 var start_position = Vector3(start_x, start_y, start_z) 
 var move_direction = Vector3(0, 0, 1)  # Move along the Z-axis
-var move_speed = 2
+var move_speed = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
