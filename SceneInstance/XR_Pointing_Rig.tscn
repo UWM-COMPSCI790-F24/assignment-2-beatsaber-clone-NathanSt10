@@ -30,6 +30,7 @@ mesh = SubResource("ImmediateMesh_j1yak")
 script = ExtResource("6_tah0e")
 
 [node name="RayCast3D" type="RayCast3D" parent="LeftController"]
+collision_mask = 257
 collide_with_areas = true
 collide_with_bodies = false
 
@@ -50,6 +51,7 @@ mesh = SubResource("ImmediateMesh_pngib")
 script = ExtResource("6_tah0e")
 
 [node name="RayCast3D" type="RayCast3D" parent="RightController"]
+collision_mask = 513
 collide_with_areas = true
 collide_with_bodies = false
 

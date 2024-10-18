@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b15d0d0ol8gsk"]
 
-[ext_resource type="Script" path="res://Scripts/CubeMove.gd" id="1_pto4l"]
+[ext_resource type="Script" path="res://Scripts/CubeMoveCenter.gd" id="1_pto4l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h8exw"]
 size = Vector3(0.25, 0.25, 0.25)
@@ -10,6 +10,8 @@ size = Vector3(0.25, 0.25, 0.25)
 script = ExtResource("1_pto4l")
 
 [node name="RCArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 0
 
 [node name="RCCollision" type="CollisionShape3D" parent="RCArea"]
 shape = SubResource("BoxShape3D_h8exw")
