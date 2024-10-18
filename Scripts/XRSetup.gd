@@ -14,3 +14,9 @@ func _ready():
 		get_viewport().use_xr = true
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
+
+# Handle OpenXR pose recentered signal
+func _on_openxr_pose_recentered() -> void:
+	# User recentered view, we have to react to this by recentering the view.
+	# This is game implementation dependent.
+	emit_signal("pose_recentered")
