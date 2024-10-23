@@ -62,4 +62,5 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 stream = ExtResource("6_u3ewu")
 
 [connection signal="button_pressed" from="LeftController" to="LeftController" method="_on_button_pressed"]
+[connection signal="button_pressed" from="RightController" to="." method="_on_right_controller_button_pressed"]
 [connection signal="button_pressed" from="RightController" to="RightController" method="_on_button_pressed"]

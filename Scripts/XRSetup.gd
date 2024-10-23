@@ -18,12 +18,8 @@ func _ready():
 	#connect("pose_recentered", self, "_on_pose_recentered")
 
 
-# Handle OpenXR pose recentered signal
-func _on_openxr_pose_recentered() -> void:
-	# User recentered view, we have to react to this by recentering the view.
-	# This is game implementation dependent.
-	emit_signal("pose_recentered")
-	
-func _on_pose_recentered() -> void:
-	print("Pose recentered, do something here!")
-	# Add your recenter logic here, if needed
+
+
+func _on_right_controller_button_pressed(name: String) -> void:
+	if name == "primary_click":
+		XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true) # Replace with function body.
