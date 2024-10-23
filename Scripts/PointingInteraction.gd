@@ -43,4 +43,3 @@ func _on_button_pressed(name: String) -> void:
 	
 func destroy_cube(cube):
 	cube.queue_free()
-	print("Cube Destroyed: ", cube.name)

@@ -1,5 +1,6 @@
 extends Node3D
 
+signal pose_recentered
 var xr_interface: XRInterface
 
 func _ready():
@@ -12,14 +13,12 @@ func _ready():
 
 		# Change our main viewport to output to the HMD
 		get_viewport().use_xr = true
+		
+		xr_interface.pose_recentered.connect(_on_openxr_pose_recentered)
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
-		
-	#connect("pose_recentered", self, "_on_pose_recentered")
 
 
-
-
-func _on_right_controller_button_pressed(name: String) -> void:
-	if name == "primary_click":
-		XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true) # Replace with function body.
+func _on_openxr_pose_recentered() -> void:
+	# User recentered view, we have to react to this by recentering the view.
+	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)

@@ -13,7 +13,7 @@ Name: Nathan Stout
 
 UWM Email: nstout@uwm.edu
 
-Third Party Assets:
+Third Party Assets: LineRenderer Script and Touch Controller Models provided in class. Audio beep sound effect from https://samplefocus.com/
 
 ## Getting Started
 

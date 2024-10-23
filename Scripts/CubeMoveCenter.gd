@@ -15,7 +15,6 @@ var move_speed = 3
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	position = start_position
-	print(start_x)
 	if start_x > 0:
 		material = color_red
 		get_child(0).set_collision_layer_value(9, true)

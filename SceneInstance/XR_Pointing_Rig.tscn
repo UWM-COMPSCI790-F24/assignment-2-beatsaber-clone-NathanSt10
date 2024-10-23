@@ -9,9 +9,9 @@
 [ext_resource type="Script" path="res://Scripts/LineRenderer.gd" id="6_tah0e"]
 [ext_resource type="AudioStream" uid="uid://bcvdncwgeebfe" path="res://Audio/short-beep_C_major.wav" id="6_u3ewu"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_j1yak"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_h3mvf"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_pngib"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_6gdl3"]
 
 [node name="PointingRig" type="XROrigin3D"]
 script = ExtResource("1_wx6m3")
@@ -26,7 +26,7 @@ script = ExtResource("4_0xfom")
 
 [node name="LineRenderer" type="MeshInstance3D" parent="LeftController"]
 material_override = ExtResource("3_1t7tg")
-mesh = SubResource("ImmediateMesh_j1yak")
+mesh = SubResource("ImmediateMesh_h3mvf")
 script = ExtResource("6_tah0e")
 
 [node name="RayCast3D" type="RayCast3D" parent="LeftController"]
@@ -47,7 +47,7 @@ script = ExtResource("4_0xfom")
 
 [node name="LineRenderer" type="MeshInstance3D" parent="RightController"]
 material_override = ExtResource("5_haeta")
-mesh = SubResource("ImmediateMesh_pngib")
+mesh = SubResource("ImmediateMesh_6gdl3")
 script = ExtResource("6_tah0e")
 
 [node name="RayCast3D" type="RayCast3D" parent="RightController"]
